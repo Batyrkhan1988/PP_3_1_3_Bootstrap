@@ -6,15 +6,16 @@ import java.util.HashSet;
 import java.util.List;
 
 public interface RoleDao {
-    public List<Role> getAllRoles();
 
-    public Role getRoleByName(String name);
+    List<Role> getAllRoles();
 
-    public HashSet<Role> getSetOfRoles(String[] roleNames);
+    Role getRoleByName(String name);
 
-    public void add(Role role);
+    HashSet<Role> getSetOfRoles(String[] roleNames);
 
-    public void edit(Role role);
+    void add(Role role);
 
-    public Role getById(int id);
+    void edit(Role role);
+
+    Role getById(int id);
 }

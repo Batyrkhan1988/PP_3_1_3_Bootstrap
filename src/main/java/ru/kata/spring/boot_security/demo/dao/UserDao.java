@@ -10,15 +10,15 @@ import java.util.List;
 @Repository
 public interface UserDao {
 
-    public User getUserByEmail(String email);
+    User getUserByEmail(String email);
 
-    public void addUser(User user);
+    void addUser(User user);
 
-    public User getUserById(int id);
+    User getUserById(int id);
 
-    public User updateUser(User user);
+    void updateUser(User user);
 
-    public void removeUserById(int id);
+    void removeUserById(int id);
 
-    public List<User> listUsers();
+    List<User> listUsers();
 }
