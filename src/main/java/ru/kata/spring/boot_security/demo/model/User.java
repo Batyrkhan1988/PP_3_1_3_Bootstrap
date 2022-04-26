@@ -33,9 +33,6 @@ public class User implements UserDetails {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "login")
-    private String username;
-
     @Column(name = "password")
     private String password;
 
@@ -49,12 +46,11 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String name, String lastName, String age, String email, String username, String password, Set<Role> roles) {
+    public User(String name, String lastName, String age, String email, String password, Set<Role> roles) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
         this.email = email;
-        this.username = username;
         this.password = password;
         this.roles = roles;
     }
@@ -101,11 +97,11 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.email = email;
     }
 
     @Override
@@ -157,12 +153,12 @@ public class User implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && name.equals(user.name) && lastName.equals(user.lastName) && age.equals(user.age) && email.equals(user.email) && username.equals(user.username) && password.equals(user.password) && roles.equals(user.roles);
+        return id == user.id && name.equals(user.name) && lastName.equals(user.lastName) && age.equals(user.age) && email.equals(user.email) && password.equals(user.password) && roles.equals(user.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, lastName, age, email, username, password, roles);
+        return Objects.hash(id, name, lastName, age, email, password, roles);
     }
 
     @Override
@@ -173,7 +169,6 @@ public class User implements UserDetails {
                 ", lastName='" + lastName + '\'' +
                 ", age='" + age + '\'' +
                 ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
                 '}';
